@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>دفتر وقمر — مكتبة تروي حكايات الليل</title>
+<link rel="preconnect" href="https://script.google.com" crossorigin>
+<link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
+<link rel="dns-prefetch" href="https://script.google.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -85,7 +88,7 @@ header.scrolled .head-in{padding:10px 0}
 .searchbox .s-ic{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--faint);pointer-events:none}
 .cart-btn{position:relative;display:flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;
   background:linear-gradient(135deg,var(--gold),var(--gold2));color:#24120399;color:#241203;
-  font-weight:700;font-size:.9rem;box-shadow:0 8px 24px rgba(201,123,47,.35);transition:all 3s ease-in-out;flex-shrink:0}
+  font-weight:700;font-size:.9rem;box-shadow:0 8px 24px rgba(201,123,47,.35);transition:all 1.5s ease-in-out;flex-shrink:0}
 .cart-btn:hover{transform:scale(1.03);box-shadow:0 12px 30px rgba(201,123,47,.5)}
 .cart-btn .cnt{position:absolute;top:-7px;left:-7px;min-width:24px;height:24px;padding:0 6px;border-radius:999px;
   background:#f5ead9;color:#241203;font-size:.75rem;font-weight:800;display:grid;place-items:center;
@@ -104,7 +107,7 @@ header.scrolled .head-in{padding:10px 0}
 .hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--amber),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{color:var(--muted);font-size:1.06rem;max-width:520px;margin-bottom:36px}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:.95rem;transition:all 3s ease-in-out}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:999px;font-weight:700;font-size:.95rem;transition:all 1.5s ease-in-out}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241203;box-shadow:0 10px 30px rgba(201,123,47,.35)}
 .btn-gold:hover{transform:scale(1.03);box-shadow:0 16px 36px rgba(201,123,47,.5)}
 .btn-ghost{border:1px solid var(--line2);color:var(--ink)}
@@ -117,14 +120,14 @@ header.scrolled .head-in{padding:10px 0}
 .float-wrap{position:relative;height:480px}
 .fbook{position:absolute;width:190px;border-radius:10px;overflow:hidden;
   box-shadow:0 30px 60px rgba(0,0,0,.6),0 4px 12px rgba(0,0,0,.4);
-  will-change:transform;cursor:pointer;transition:transform 3s ease-in-out,box-shadow 3s ease-in-out;
+  will-change:transform;cursor:pointer;transition:transform 1.5s ease-in-out,box-shadow 1.5s ease-in-out;
   animation:fadeIn 2s ease-in-out backwards}
 .fbook svg{width:100%;height:auto}
 /* طفو بطيء وأنيق جداً للأغلفة — يعمل على غلاف داخلي حتى لا يتعارض مع الـ hover */
 .ffloat{display:block;will-change:transform}
-.fbook.f1 .ffloat{animation:floatY 30s ease-in-out infinite}
-.fbook.f2 .ffloat{animation:floatY 36s ease-in-out -12s infinite}
-.fbook.f3 .ffloat{animation:floatY 33s ease-in-out -21s infinite}
+.fbook.f1 .ffloat{animation:floatY 22s ease-in-out infinite}
+.fbook.f2 .ffloat{animation:floatY 26s ease-in-out -9s infinite}
+.fbook.f3 .ffloat{animation:floatY 24s ease-in-out -15s infinite}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .fbook.f1{top:36px;right:8%;transform:rotate(4deg);animation-delay:.15s}
 .fbook.f2{top:140px;right:44%;width:210px;z-index:2;transform:rotate(-4deg);animation-delay:.3s}
@@ -139,7 +142,7 @@ header.scrolled .head-in{padding:10px 0}
 /* شريط متحرك */
 .marquee{border-block:1px solid var(--line);padding:16px 0;overflow:hidden;
   background:rgba(232,171,90,.045);white-space:nowrap}
-.marquee-in{display:inline-flex;gap:44px;animation:mq 160s linear infinite;font-family:var(--fdisplay);font-size:1.05rem;color:var(--muted)}
+.marquee-in{display:inline-flex;gap:44px;animation:mq 110s linear infinite;font-family:var(--fdisplay);font-size:1.05rem;color:var(--muted)}
 .marquee-in b{color:var(--amber);font-weight:400}
 @keyframes mq{from{transform:translateX(calc(-50% - 22px))}to{transform:translateX(0)}}
 
@@ -154,7 +157,7 @@ header.scrolled .head-in{padding:10px 0}
 
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
 .chip{padding:9px 20px;border-radius:999px;border:1px solid var(--line);color:var(--muted);
-  font-size:.86rem;transition:all 3s ease-in-out;display:flex;align-items:center;gap:8px}
+  font-size:.86rem;transition:all 1.5s ease-in-out;display:flex;align-items:center;gap:8px}
 .chip small{font-size:.7rem;background:rgba(232,171,90,.12);color:var(--amber);padding:1px 8px;border-radius:999px}
 .chip:hover{border-color:var(--gold2);color:var(--ink)}
 .chip.active{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241203;border-color:transparent;font-weight:700}
@@ -165,29 +168,29 @@ header.scrolled .head-in{padding:10px 0}
 /* دخول هادئ للبطاقات عند تحميل الصفحة فقط — بدون أي تكرار */
 @keyframes cardIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.grid.load .bcard{animation:cardIn 2s ease-in-out backwards}
-.grid.load .bcard:nth-child(2){animation-delay:.08s}
-.grid.load .bcard:nth-child(3){animation-delay:.16s}
-.grid.load .bcard:nth-child(4){animation-delay:.24s}
-.grid.load .bcard:nth-child(5){animation-delay:.32s}
-.grid.load .bcard:nth-child(6){animation-delay:.4s}
-.grid.load .bcard:nth-child(7){animation-delay:.48s}
-.grid.load .bcard:nth-child(n+8){animation-delay:.56s}
+.grid.load .bcard{animation:cardIn .55s ease-out backwards}
+.grid.load .bcard:nth-child(2){animation-delay:.04s}
+.grid.load .bcard:nth-child(3){animation-delay:.08s}
+.grid.load .bcard:nth-child(4){animation-delay:.12s}
+.grid.load .bcard:nth-child(5){animation-delay:.16s}
+.grid.load .bcard:nth-child(6){animation-delay:.2s}
+.grid.load .bcard:nth-child(7){animation-delay:.24s}
+.grid.load .bcard:nth-child(n+8){animation-delay:.28s}
 .bcard{background:linear-gradient(180deg,var(--card),#1b120b);border:1px solid var(--line);border-radius:var(--r);
-  overflow:hidden;cursor:pointer;transition:transform 3s ease-in-out,box-shadow 3s ease-in-out,border-color 3s ease-in-out;position:relative}
+  overflow:hidden;cursor:pointer;transition:transform 1.5s ease-in-out,box-shadow 1.5s ease-in-out,border-color 1.5s ease-in-out;position:relative}
 .bcard:hover{transform:scale(1.01);border-color:var(--line2);box-shadow:var(--sh)}
 .bcard .cov{position:relative;aspect-ratio:2/3;overflow:hidden;background:#120c06}
-.bcard .cov svg{width:100%;height:100%;transition:transform 3s ease-in-out}
+.bcard .cov svg{width:100%;height:100%;transition:transform 1.5s ease-in-out}
 /* صور الكتب الاختيارية فوق الرسم البديل */
 .book-art{position:relative;width:100%;height:100%;overflow:hidden}
 .book-art-fallback{width:100%;height:100%}
-.book-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 3s ease-in-out}
+.book-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.5s ease-in-out}
 .bcard:hover .book-photo{transform:scale(1.025)}
 .bcard.out .book-photo{filter:grayscale(.6) brightness(.75)}
 .mmain .book-photo,.mth .book-photo{object-fit:contain;background:#1b120b}
 .bcard:hover .cov svg{transform:scale(1.025)}
 .bcard .cov::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(200deg,rgba(255,235,200,.14),transparent 45%);opacity:0;transition:opacity 3s ease-in-out}
+  background:linear-gradient(200deg,rgba(255,235,200,.14),transparent 45%);opacity:0;transition:opacity 1.5s ease-in-out}
 .bcard:hover .cov::after{opacity:1}
 .badge{position:absolute;top:12px;right:12px;z-index:3;padding:5px 13px;border-radius:999px;font-size:.68rem;font-weight:700;
   display:flex;align-items:center;gap:6px;backdrop-filter:blur(6px)}
@@ -207,7 +210,7 @@ header.scrolled .head-in{padding:10px 0}
   background:linear-gradient(120deg,var(--amber),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
 .price small{font-size:.7rem;-webkit-text-fill-color:var(--gold)}
 .addbtn{display:flex;align-items:center;gap:7px;padding:9px 16px;border-radius:999px;font-size:.78rem;font-weight:700;
-  background:rgba(232,171,90,.12);color:var(--amber);border:1px solid var(--line2);transition:all 3s ease-in-out}
+  background:rgba(232,171,90,.12);color:var(--amber);border:1px solid var(--line2);transition:all 1.5s ease-in-out}
 .addbtn:hover{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241203;border-color:transparent;transform:scale(1.03)}
 .addbtn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 .empty{grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--faint)}
@@ -216,7 +219,7 @@ header.scrolled .head-in{padding:10px 0}
 /* ══════════════════════ مزايا ══════════════════════ */
 .feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
 .fcard{background:linear-gradient(180deg,var(--panel),#1d130a);border:1px solid var(--line);border-radius:var(--r);
-  padding:30px 26px;transition:all 3s ease-in-out;position:relative;overflow:hidden}
+  padding:30px 26px;transition:all 1.5s ease-in-out;position:relative;overflow:hidden}
 .fcard::before{content:"";position:absolute;inset-inline:0;top:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold2),transparent)}
 .fcard:hover{transform:scale(1.02);border-color:var(--line2)}
@@ -235,7 +238,7 @@ footer{border-top:1px solid var(--line);background:linear-gradient(180deg,transp
 .foot ul a:hover{color:var(--amber);padding-inline-start:6px}
 .socials{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
 .soc{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;border:1px solid var(--line2);
-  color:var(--muted);transition:all 3s ease-in-out;background:rgba(255,240,220,.03)}
+  color:var(--muted);transition:all 1.5s ease-in-out;background:rgba(255,240,220,.03)}
 .soc:hover{transform:scale(1.08);color:#241203;background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:transparent}
 .soc[aria-disabled="true"]{opacity:.38;cursor:not-allowed}.soc[aria-disabled="true"]:hover{transform:none;color:var(--muted);background:rgba(255,240,220,.03);border-color:var(--line2)}
 .copy{text-align:center;padding:22px;border-top:1px solid var(--line);font-size:.78rem;color:var(--faint)}
@@ -285,7 +288,7 @@ footer{border-top:1px solid var(--line);background:linear-gradient(180deg,transp
 .qty button:hover{background:rgba(232,171,90,.15)}
 .qty b{min-width:36px;text-align:center;font-size:1.02rem}
 .madd{width:100%;padding:16px;border-radius:16px;font-size:1rem;font-weight:800;display:flex;align-items:center;justify-content:center;gap:10px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241203;box-shadow:0 12px 30px rgba(201,123,47,.35);transition:all 3s ease-in-out}
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241203;box-shadow:0 12px 30px rgba(201,123,47,.35);transition:all 1.5s ease-in-out}
 .madd:hover:not(:disabled){transform:scale(1.02);box-shadow:0 18px 40px rgba(201,123,47,.5)}
 .madd:disabled{opacity:.45;cursor:not-allowed}
 
@@ -333,13 +336,13 @@ footer{border-top:1px solid var(--line);background:linear-gradient(180deg,transp
 /* تأكيد الطلب عبر الجدول */
 .sheetbtn{display:flex;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:15px;
   background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241203;font-weight:800;font-size:.98rem;
-  box-shadow:0 12px 30px rgba(201,123,47,.3);transition:transform 3s ease-in-out,box-shadow 3s ease-in-out}
+  box-shadow:0 12px 30px rgba(201,123,47,.3);transition:transform 1.5s ease-in-out,box-shadow 1.5s ease-in-out}
 .sheetbtn:hover{transform:scale(1.02)}
 .sheetbtn:disabled{opacity:.48;cursor:not-allowed;transform:none}
 .sheet-hint{font-size:.7rem;color:var(--muted);margin:9px 0 12px;line-height:1.6}
 .wabtn{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;padding:16px;border-radius:15px;
   background:linear-gradient(135deg,#2ee06f,#1da851);color:#062b12;font-weight:800;font-size:1rem;
-  box-shadow:0 12px 30px rgba(37,211,102,.3);transition:all 3s ease-in-out}
+  box-shadow:0 12px 30px rgba(37,211,102,.3);transition:all 1.5s ease-in-out}
 .wabtn:hover{transform:scale(1.02);box-shadow:0 16px 38px rgba(37,211,102,.45)}
 .wabtn.dis{opacity:.45;pointer-events:none}
 .cont-s{text-align:center;margin-top:12px;font-size:.8rem;color:var(--muted);cursor:pointer}
@@ -348,7 +351,7 @@ footer{border-top:1px solid var(--line);background:linear-gradient(180deg,transp
 /* زر واتساب العائم */
 .wafloat{position:fixed;bottom:24px;left:24px;z-index:150;width:56px;height:56px;border-radius:50%;
   display:grid;place-items:center;background:linear-gradient(135deg,#2ee06f,#1da851);color:#fff;
-  box-shadow:0 10px 26px rgba(37,211,102,.4);transition:box-shadow .5s ease;animation:waBob 20s ease-in-out infinite}
+  box-shadow:0 10px 26px rgba(37,211,102,.4);transition:box-shadow .5s ease;animation:waBob 14s ease-in-out infinite}
 .wafloat:hover{box-shadow:0 16px 38px rgba(37,211,102,.6)}
 @keyframes waBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
 
@@ -389,7 +392,7 @@ footer{border-top:1px solid var(--line);background:linear-gradient(180deg,transp
 
 /* ظهور عند التمرير */
 /* ظهور ناعم وبطيء عند التمرير */
-.rv{opacity:0;transform:translateY(12px);transition:opacity 2s ease-in-out,transform 2s ease-in-out}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .9s ease-in-out,transform .9s ease-in-out}
 .rv.in{opacity:1;transform:none}
 
 /* ══════════════════════ استجابة ══════════════════════ */
@@ -847,10 +850,9 @@ function coverSVG(b, uid){
     <linearGradient id="bg-${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient>
     <radialGradient id="vig-${u}" cx=".5" cy=".42" r=".75"><stop offset=".55" stop-color="rgba(0,0,0,0)"/><stop offset="1" stop-color="rgba(0,0,0,.38)"/></radialGradient>
     <filter id="soft-${u}"><feGaussianBlur stdDeviation="10"/></filter>
-    <filter id="nz-${u}"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 .05 0"/></filter>
-  </defs>
+    </defs>
   <rect width="300" height="450" fill="url(#bg-${u})"/>
-  <rect width="300" height="450" filter="url(#nz-${u})"/>
+  <rect width="300" height="450" fill="rgba(255,230,190,.025)"/>
   <rect width="300" height="450" fill="url(#vig-${u})"/>
   ${motifSVG(b.motif,u,acc)}
   <text x="150" y="52" text-anchor="middle" font-size="11" fill="${acc}" opacity=".9" font-family="'Tajawal',Tahoma,Arial">${catLabel(b.cat)}</text>
@@ -1337,21 +1339,25 @@ function loadCatalog(attempt=0){
   $("grid").innerHTML=`<div class="empty"><div class="big">${t('loadingTitle')}</div>${attempt?t('retrying'):t('loadingBody')}</div>`;
   const cb='dwqCatalog_'+Date.now().toString(36)+Math.random().toString(36).slice(2,12);
   const script=document.createElement('script');let completed=false;
-  let fetchFailed=false,scriptFailed=false;
+  let fetchFailed=false,scriptFailed=false,scriptStarted=false,fallbackTimer=null;
   const controller=typeof AbortController==='function'?new AbortController():null;
   const url=SITE.ordersEndpoint+'?catalog=1&callback='+encodeURIComponent(cb)+'&t='+Date.now();
   const timer=setTimeout(()=>finish(null),22000);
   function valid(payload){return payload&&payload.version===2&&payload.ok&&Array.isArray(payload.books)}
+  function startFallback(){
+    if(completed||scriptStarted)return;
+    scriptStarted=true;script.src=url;document.head.appendChild(script);
+  }
   function pathFailed(path){
     if(completed)return;
-    if(path==='fetch')fetchFailed=true;else scriptFailed=true;
+    if(path==='fetch'){fetchFailed=true;startFallback()}else scriptFailed=true;
     if(fetchFailed&&scriptFailed)finish(null);
   }
   function finish(payload){
-    if(completed)return;completed=true;clearTimeout(timer);script.remove();
+    if(completed)return;completed=true;clearTimeout(timer);clearTimeout(fallbackTimer);script.remove();
     if(controller)controller.abort();
-    /* الرد المتأخر لا يسبب خطأ بعد استخدام المسار الآخر. */
-    window[cb]=()=>{};setTimeout(()=>delete window[cb],60000);
+    /* الرد المتأخر من المسار البديل لا يسبب خطأ. */
+    if(scriptStarted){window[cb]=()=>{};setTimeout(()=>delete window[cb],60000)}else delete window[cb];
     if(!payload || payload.version!==2 || !payload.ok || !Array.isArray(payload.books)){
       if(attempt<1){
         $("grid").innerHTML=`<div class="empty"><div class="big">${t('loadingTitle')}</div>${t('retrying')}</div>`;
@@ -1371,13 +1377,13 @@ function loadCatalog(attempt=0){
       else if(q>b.stock){cart.set(id,b.stock);adjusted=true}
     });
     saveCart();catalogReady=true;renderHeroBooks();renderChips();renderGrid();renderCart();updateTranslationNote();
-    $("grid").classList.add("load");setTimeout(()=>$("grid").classList.remove("load"),2700);
+    $("grid").classList.add("load");setTimeout(()=>$("grid").classList.remove("load"),1000);
     if(adjusted)toast(t('cartUpdated'));
   }
-  /* مساران متوازيان: طلب CORS آمن، وJSONP بديل للمتصفحات التي تحجبه. */
+  /* الطلب الأساسي يبدأ فوراً؛ يبدأ البديل عند تعثره أو تأخره. */
   window[cb]=payload=>valid(payload)?finish(payload):pathFailed('script');
   script.onerror=()=>pathFailed('script');
-  script.src=url;document.head.appendChild(script);
+  fallbackTimer=setTimeout(startFallback,2500);
   if(typeof fetch==='function'){
     const options={method:'GET',mode:'cors',credentials:'omit',cache:'no-store',redirect:'follow'};
     if(controller)options.signal=controller.signal;
@@ -1420,5 +1426,5 @@ function applyLanguage(){
 $('languageSelect').addEventListener('change',e=>{lang=e.target.value;try{localStorage.setItem('dwq_lang',lang)}catch(err){}applyLanguage()});
 applyLanguage();loadCatalog();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a586a6089a21cbb4',t:'MTc5NDMzMDM5NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a586a6089a21cbb4',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a586afa7fa10ff33',t:'MTc5NDMzMDc4OQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a586afa7fa10ff33',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
