@@ -1337,11 +1337,21 @@ function loadCatalog(attempt=0){
   $("grid").innerHTML=`<div class="empty"><div class="big">${t('loadingTitle')}</div>${attempt?t('retrying'):t('loadingBody')}</div>`;
   const cb='dwqCatalog_'+Date.now().toString(36)+Math.random().toString(36).slice(2,12);
   const script=document.createElement('script');let completed=false;
+  let fetchFailed=false,scriptFailed=false;
+  const controller=typeof AbortController==='function'?new AbortController():null;
+  const url=SITE.ordersEndpoint+'?catalog=1&callback='+encodeURIComponent(cb)+'&t='+Date.now();
   const timer=setTimeout(()=>finish(null),22000);
+  function valid(payload){return payload&&payload.version===2&&payload.ok&&Array.isArray(payload.books)}
+  function pathFailed(path){
+    if(completed)return;
+    if(path==='fetch')fetchFailed=true;else scriptFailed=true;
+    if(fetchFailed&&scriptFailed)finish(null);
+  }
   function finish(payload){
     if(completed)return;completed=true;clearTimeout(timer);script.remove();
-    if(payload)delete window[cb];
-    else{window[cb]=()=>{};setTimeout(()=>delete window[cb],60000)}
+    if(controller)controller.abort();
+    /* الرد المتأخر لا يسبب خطأ بعد استخدام المسار الآخر. */
+    window[cb]=()=>{};setTimeout(()=>delete window[cb],60000);
     if(!payload || payload.version!==2 || !payload.ok || !Array.isArray(payload.books)){
       if(attempt<1){
         $("grid").innerHTML=`<div class="empty"><div class="big">${t('loadingTitle')}</div>${t('retrying')}</div>`;
@@ -1364,10 +1374,23 @@ function loadCatalog(attempt=0){
     $("grid").classList.add("load");setTimeout(()=>$("grid").classList.remove("load"),2700);
     if(adjusted)toast(t('cartUpdated'));
   }
-  window[cb]=finish;
-  script.onerror=()=>finish(null);
-  script.src=SITE.ordersEndpoint+'?catalog=1&callback='+encodeURIComponent(cb)+'&t='+Date.now();
-  document.head.appendChild(script);
+  /* مساران متوازيان: طلب CORS آمن، وJSONP بديل للمتصفحات التي تحجبه. */
+  window[cb]=payload=>valid(payload)?finish(payload):pathFailed('script');
+  script.onerror=()=>pathFailed('script');
+  script.src=url;document.head.appendChild(script);
+  if(typeof fetch==='function'){
+    const options={method:'GET',mode:'cors',credentials:'omit',cache:'no-store',redirect:'follow'};
+    if(controller)options.signal=controller.signal;
+    fetch(url,options).then(response=>{
+      if(!response.ok)throw new Error('catalog-http');
+      return response.text();
+    }).then(text=>{
+      const body=text.trim(),prefix=cb+'(';
+      if(!body.startsWith(prefix)||!body.endsWith(');'))throw new Error('catalog-format');
+      const payload=JSON.parse(body.slice(prefix.length,-2));
+      if(valid(payload))finish(payload);else pathFailed('fetch');
+    }).catch(()=>pathFailed('fetch'));
+  }else pathFailed('fetch');
 }
 function updateTranslationNote(){
   const note=$("translationNote");
@@ -1397,5 +1420,5 @@ function applyLanguage(){
 $('languageSelect').addEventListener('change',e=>{lang=e.target.value;try{localStorage.setItem('dwq_lang',lang)}catch(err){}applyLanguage()});
 applyLanguage();loadCatalog();
 </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a586a6089a21cbb4',t:'MTc5NDMzMDM5NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a586a6089a21cbb4',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
